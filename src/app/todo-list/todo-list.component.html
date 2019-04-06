@@ -1,0 +1,26 @@
+<button (click)="addTitle()">Add title</button>
+
+<div >Current state: {{ todo$ | async | json}}</div>
+
+<button (click)="addContent()">Add content</button>
+<button (click)="getTodo()">getTodo</button>
+<button (click)="addNumberToTile()">add number to title</button>
+
+<div>Current title: {{title$ | async}}</div>
+<br><br>
+USER
+<div>Current state of user: {{user$ | async | json}}</div>
+
+
+<div *ngFor="let todo of todoApi$ | async ">
+  {{ todo | json}}
+</div>
+
+<!-- <div >{{todoApi$ | async | json}}</div> -->
+
+<button (click)="loadTodoApi()">Loasd todoApi</button>
+
+
+USERS FROM JSON
+<div>Users from assets: {{users$ | async | json}}</div>
+<button click="loadUsers()">Load users</button>

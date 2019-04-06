@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid;
+  margin-top: 50px;
+  width: 100wh;
+  min-height: 200px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+
+}
+.item {
+    height: 50px;
+    background: red;
+    width: 100%;
+    border: 2px solid green;
+  }
