@@ -42,7 +42,7 @@ todosiki  = []
 
   ngOnInit() {
 
-   this.store.dispatch(new GetUsers());
+  //  this.store.dispatch(new GetUsers());
 
     this.todoService.getUsers().subscribe(res => {
       console.log(res)
@@ -74,7 +74,8 @@ todosiki  = []
   }
 
   loadUsers () {
-    this.store.dispatch({type: '[User] Get Users Success'});
+    this.store.dispatch(new GetUsers());
+    this.store.dispatch({type: '[User] Get Users'});
   }
 
   loadTodoApi () {

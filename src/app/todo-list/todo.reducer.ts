@@ -81,7 +81,6 @@ export const userReducers = (
 ): IUserState => {
   switch (action.type) {
     case EUserActions.GetUsersSuccess: {
-      console.log(action.payload)
       return {
         ...state,
         users: action.payload

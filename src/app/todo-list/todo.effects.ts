@@ -52,10 +52,12 @@ export class UserEffects {
   //   })
   // );
 
+
+
   @Effect()
   getUsers$ = this._actions$
   .pipe(
-    ofType('[User] Get Users'),
+    ofType(EUserActions.GetUsers),
     mergeMap(() => this._userService.getUsers()
       .pipe(
         map(users => ({ type: '[User] Get Users Success', payload: users })),
@@ -63,7 +65,7 @@ export class UserEffects {
     )
   );
 
-
+//to na dole bylo oryginalnie ALE nie dziala nie wiem czemu
 
   // @Effect()
   // getUsers$ = this._actions$.pipe(
