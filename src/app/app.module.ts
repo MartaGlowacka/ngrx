@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app.routing.module';
 import { UserEffects } from './todo-list/todo.effects';
 
 // import { todoTitle, reducers } from './index';
@@ -16,6 +17,8 @@ import { AppEffects } from './app.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { TodoEffects } from './todo-list/todo.effects';
 import { appReducers } from '.';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterModule } from '@angular/router';
 
 
 // export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<fromRoot.IState>>('Registered reducers');
@@ -28,12 +31,15 @@ import { appReducers } from '.';
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule,
     StoreModule.forRoot(appReducers),
 
     // StoreModule.forRoot({'todo':todoReducer, 'todoTitle':todoTitleReducer, 'user': userReducer, 'todoApi': fromRoot.todoApiReducer}),
 
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([UserEffects]),
+    StoreRouterConnectingModule.forRoot({stateKey:'router'}),
+    AppRoutingModule
 
   ],
   providers: [],

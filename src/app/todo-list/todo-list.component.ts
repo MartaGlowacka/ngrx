@@ -3,7 +3,7 @@ import { IAppState, selectUserList } from './../index';
 import { IUser, ITodoApi } from './todo.reducer';
 
 
-import { AddContent, AddTitle, GetTodo, AddNumberToTitle, GetUsers } from './todo.actions';
+import { AddContent, AddTitle, GetTodo, AddNumberToTitle, GetUsers, AddUser } from './todo.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -43,6 +43,11 @@ todosiki  = []
   ngOnInit() {
 
   //  this.store.dispatch(new GetUsers());
+  this.store.dispatch(new AddUser({id: 5, name: 'Karol Mróz', cardNumber: 'xxxx-xxxx-6432', cardType: 'visa'}))
+
+  this.todoService.addUser({id: 5, name: 'Karol Mróz', cardNumber: 'xxxx-xxxx-6432', cardType: 'visa'}).subscribe(res => {
+    console.log(res)
+  })
 
     this.todoService.getUsers().subscribe(res => {
       console.log(res)
@@ -75,7 +80,7 @@ todosiki  = []
 
   loadUsers () {
     this.store.dispatch(new GetUsers());
-    this.store.dispatch({type: '[User] Get Users'});
+    // this.store.dispatch({type: '[User] Get Users'});
   }
 
   loadTodoApi () {

@@ -1,8 +1,9 @@
+import { IUserHttp } from './todo.service';
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import {HttpClient}
+
 
 export interface IUserHttp {
   users: IUser[];
@@ -24,6 +25,10 @@ export class TodoService {
      usersUrl = `${environment.apiUrl}users.json`;
   constructor (private http: HttpClient) {console.log(this.usersUrl)}
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
 
   getAll() {
     return this.http.get('https://jsonplaceholder.typicode.com/todos');
@@ -33,9 +38,12 @@ export class TodoService {
 
 
   getUsers(): Observable<IUserHttp> {
-    return this.http.get<IUserHttp>('http://localhost:4200/assets/users.json');
+    // return this.http.get<IUserHttp>('http://localhost:4200/assets/users.json');
+    return this.http.get<IUserHttp>('https://jsonplaceholder.typicode.com/todos');
+  }
 
-
+  addUser(user: IUser) {
+    return this.http.post<IUser>('https://jsonplaceholder.typicode.com/todos', user)
   }
 
 

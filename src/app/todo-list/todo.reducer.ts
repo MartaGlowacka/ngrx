@@ -93,6 +93,13 @@ export const userReducers = (
     //   };
     // }
 
+    case EUserActions.AddUserSuccess: {
+      return {
+        ...state,
+        users: Object.assign({...state.users},action.payload )
+      }
+    }
+
     default:
       return state;
   }

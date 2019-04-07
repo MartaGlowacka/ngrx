@@ -2,19 +2,19 @@
   "users": [
     {
       "id": 1,
-      "name": "Luis Suarez",
+      "name": "Luiza Socha",
       "cardNumber": "XXXX-XXXX-XXXX-4321",
       "cardType": "Visa"
     },
     {
       "id": 2,
-      "name": "Lucas Torreira",
+      "name": "Mel Gibson",
       "cardNumber": "XXXX-XXXX-XXXX-1369",
       "cardType": "Master"
     },
     {
       "id": 3,
-      "name": "Edison Cavani",
+      "name": "Thomas Edison",
       "cardNumber": "XXXX-XXXX-XXXX-8888",
       "cardType": "Visa"
     }
